@@ -1,0 +1,18 @@
+<div class="card h-100">
+
+    <div class="card-header">
+        <h5 [title]="post.title" [matTooltip]="post.title" matTooltipPosition="above">
+            {{ post.title }}
+        </h5>
+    </div>
+
+    <div class="card-body">
+        <p>{{ post.body }}</p>
+    </div>
+
+    <div class="card-footer d-flex justify-content-between">
+        <button mat-raised-button color="primary">Edit</button>
+        <button mat-raised-button color="warn">Remove</button>
+    </div>
+
+</div>
