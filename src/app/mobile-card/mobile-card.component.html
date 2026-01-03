@@ -1,0 +1,70 @@
+<div class="card shadow-sm mb-3 product-card">
+
+
+    <div class="overlay-msg" *ngIf="!mobile.isAvailable">
+        Product is Not Available
+    </div>
+
+
+    <div class="card-body" [class.blur-content]="!mobile.isAvailable">
+        <div class="row align-items-center">
+
+
+            <div class="col-md-3 text-center">
+                <div class="image-container">
+                    <img [src]="mobile.image || 'https://placehold.net/600x600.png' || 'No Image Available'"
+                        [alt]="mobile.name" class="img-fluid rounded product-img" />
+
+
+                </div>
+            </div>
+
+            <div class="col-md-7">
+                <h4 class="fw-bold mb-1">
+                    {{ mobile.name }}
+                    <span class="badge text-white" [ngClass]="{
+              'bg-success': mobile.rating > 4,
+              'bg-warning text-dark': mobile.rating > 3 && mobile.rating <= 4,
+              'bg-danger': mobile.rating <= 3
+            }">
+                        {{ mobile.rating }}
+
+                    </span>
+                </h4>
+
+                <h5 class="text-muted">Features</h5>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item py-1" *ngFor="let feature of mobile.features">
+                        {{ feature }}
+                    </li>
+                </ul>
+            </div>
+
+
+            <div class="col-md-2 text-md-end mt-3 mt-md-0">
+                <h5 class="fw-bold text-success mb-1">
+                    ${{ (mobile.price - (mobile.price * 15 / 100)) }}
+
+                </h5>
+
+                <small class="text-muted">
+                    <del>${{ mobile.price }}</del>
+                    <span class="text-danger ms-2 fw-bold">(15% OFF)</span>
+                </small>
+                <P class="text-danger"> {{ mobile.noOfItems }} left only !!!</P>
+            </div>
+
+        </div>
+
+
+        <div class="d-flex justify-content-end gap-3 mt-3">
+            <button mat-raised-button color="primary" class="mr-4">
+                Buy Now
+            </button>
+            <button mat-raised-button color="accent">
+                Add to Cart
+            </button>
+        </div>
+
+    </div>
+</div>
