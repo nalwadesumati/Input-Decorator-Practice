@@ -51,7 +51,10 @@
                     <del>${{ mobile.price }}</del>
                     <span class="text-danger ms-2 fw-bold">(15% OFF)</span>
                 </small>
-                <P class="text-danger"> {{ mobile.noOfItems }} left only !!!</P>
+                <p class="text-danger fw-bold" *ngIf="mobile.noOfItems < 10">
+                    {{ mobile.noOfItems }} left only !!!
+                </p>
+
             </div>
 
         </div>
